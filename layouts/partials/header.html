@@ -4,6 +4,12 @@
     <title>{{ .Params.Title | default "Title" }}</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <meta property="og:title" content="{{ .Params.Title | default "Title" }}" />
+    <meta property="og:url" content="{{if .IsHome}}{{ $.Site.Params.description }}{{else}}{{.Description}}{{end}}" />
+    <meta property="og:image" content="{{ .Params.background | default "images/bg.jpg" | absURL }}" />
+    <meta property="og:description" content="{{if .IsHome}}{{ $.Site.Params.description }}{{else}}{{.Description}}{{end}}" />
+    <meta property="og:locale" content="es_BO" />
+    <meta property="og:site_name" content="{{ .Params.Title | default "Title" }}" />
     <link rel="stylesheet" href="{{ "assets/css/main.css" | absURL }}"/>
     <noscript><link rel="stylesheet" href="{{ "assets/css/noscript.css" | absURL }}"/></noscript>
     <style>
